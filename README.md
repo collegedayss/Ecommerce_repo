@@ -5,8 +5,6 @@
 - pip install -r requirements.txt
   Starting up the server
 - docker-compose up
-- Website will be avalible at http://0.0.0.0:8000/
-
-Closing Docker Image.
-
+- Website will be avalible at http://localhost:8000/
+  To Shut down your Docker Image enter the following command.
 - docker-compose down
