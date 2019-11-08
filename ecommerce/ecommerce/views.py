@@ -10,14 +10,17 @@ def home_page(request):
 
 
 def about_page(request):
-        context = {
+    context = {
         'title': "ABOUT Page"
     }
-    return render(request, "home_page.html", {})
+    return render(request, "home_page.html", context)
 
 
 def contact_page(request):
-        context = {
+    context = {
         'title': "CONTACT Page"
     }
-    return render(request, "home_page.html", {})
+    if request.method == "POST":
+        print(request.POST)
+        print(request.POST.get('fullname'))
+    return render(request, "contact/view.html", context)
