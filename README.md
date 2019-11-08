@@ -10,3 +10,10 @@
   To Shut down your Docker Image enter the following command.
 
 - docker-compose down
+
+Make Migrations using these commands.
+
+- docker-compose exec web python /code/ecommerce/manage.py makemigrations
+- docker-compose exec web python /code/ecommerce/manage.py migrate
+
+tm
