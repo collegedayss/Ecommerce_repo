@@ -17,3 +17,5 @@ Make Migrations using these commands.
 - docker-compose exec web python /code/ecommerce/manage.py migrate
 
 ## some other stuff
+
+##seeing if my githubs actually working
