@@ -26,3 +26,8 @@ Make Migrations using these commands.
 
 - CTRL-B % [To open a new window]
 - CTRL-B c [To create a new tab]
+
+# SuperUser Credentials 4 now
+
+- Username: Admin
+- Password: password
