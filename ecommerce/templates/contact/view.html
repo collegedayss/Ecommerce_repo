@@ -15,12 +15,20 @@
 
 <body>
     <h1>{{title}}</h1>
-
-    <form action="" method="POST">
-        <input type="text" name="fullname">
-        {% csrf_token %}
-        <button type="submit">Submit</button>
-    </form>
+    <div class='container'>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button class='btn-' type="submit">Submit</button>
+        </form>
+        <!-- <form action="" method="POST">
+            <input class='form-control' type="text" name="fullname" placeholder="Name">
+            <input class='form-control' type="email" name="Email" placeholder="Email">
+            <input class='form-control' type="text" name="Message" placeholder="Message">
+            
+            <button type="submit">Submit</button>
+        </form> -->
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
