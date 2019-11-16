@@ -31,3 +31,14 @@ Make Migrations using these commands.
 
 - Username: Admin
 - Password: password
+
+# remove cache
+
+- rm -rf ecommerce/ecommerce/**pycache**
+
+# Git commands
+
+- git config --global user.name "John Doe"
+- git config --global user.email johndoe@example.com
+- git add .
+- git push
