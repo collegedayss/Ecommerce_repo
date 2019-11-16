@@ -23,6 +23,7 @@ class ContactForm(forms.Form):
                 "class": "form-control",
             })
     )
+# Checks if email has gmail or not
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -54,6 +55,7 @@ class RegisterForm(forms.Form):
         attrs={
             "class": "form-control",
         }))
+# Checks if username exists in query set
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
@@ -61,6 +63,7 @@ class RegisterForm(forms.Form):
         if qs.exists():
             raise forms.ValidationError("Username is taken")
         return username
+# Checks if email exists in query set
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
