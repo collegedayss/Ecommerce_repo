@@ -15,6 +15,11 @@
 
 <body>
     <h1>{{title}} </h1>
+    {%if premium_content%}
+    <div>
+        {{premium_content}}
+    </div>
+    {%endif%}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
