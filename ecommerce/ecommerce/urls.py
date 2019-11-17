@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from products.views import ProductListView, product_list_view
+
 from .views import home_page, contact_page, about_page, login_page, register_page
 
 urlpatterns = [
@@ -23,5 +26,7 @@ urlpatterns = [
     path('login/', login_page),
     path('register/', register_page),
     path('about/', about_page),
+    path('products/', ProductListView.as_view()),
+    path('products-fbv/', product_list_view),
     path('contact/', contact_page),
 ]
