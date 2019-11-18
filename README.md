@@ -21,6 +21,7 @@ Make Migrations using these commands.
 
 - docker-compose exec web python /code/ecommerce/manage.py makemigrations
 - docker-compose exec web python /code/ecommerce/manage.py migrate
+- docker-compose exec web python /code/ecommerce/manage.py createsuperuser
 
 # Tmux Commands
 
