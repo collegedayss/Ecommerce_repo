@@ -44,4 +44,3 @@ Make Migrations using these commands.
 - git add .
 - git push
 
-Hello Java
