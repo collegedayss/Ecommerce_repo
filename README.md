@@ -23,7 +23,7 @@ Make Migrations using these commands.
 - docker-compose exec web python /code/ecommerce/manage.py migrate
 - docker-compose exec web python /code/ecommerce/manage.py createsuperuser
 -  docker rmi $(docker images -a -q) | Remove current Images 
--  docker-compose u
+-  docker-compose up
 
 # Tmux Commands
 
