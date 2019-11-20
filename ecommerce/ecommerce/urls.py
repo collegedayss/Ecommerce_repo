@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.urls import path, re_path
+from django.conf.urls.static import static
 
 from django.conf.urls import url
 from django.contrib import admin
@@ -23,7 +24,7 @@ from products.views import ProductListView, product_list_view, ProductDetailView
 
 from .views import home_page, contact_page, about_page, login_page, register_page
 
-urlpatterns = [
+urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('', home_page),
     path('contact/', contact_page),
     path('login/', login_page),

@@ -21,9 +21,12 @@ Make Migrations using these commands.
 
 - docker-compose exec web python /code/ecommerce/manage.py makemigrations
 - docker-compose exec web python /code/ecommerce/manage.py migrate
+
+Create new user if You can't log in.
+
 - docker-compose exec web python /code/ecommerce/manage.py createsuperuser
--  docker rmi $(docker images -a -q) | Remove current Images 
--  docker-compose up
+- docker rmi \$(docker images -a -q) | Remove current Images
+- docker-compose up
 
 # Tmux Commands
 
@@ -43,9 +46,10 @@ Make Migrations using these commands.
 
 - git config --global user.name "John Doe"
 - git config --global user.email johndoe@example.com
-- 
+-
+
 #Pushing and Pulling from Github
+
 - git add .
 - git commit -m "Docker fix"
 - git push
-
