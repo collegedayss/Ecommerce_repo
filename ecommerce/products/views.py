@@ -17,6 +17,10 @@ class ProductListView(ListView):
     #     print(context)
     #     return context
 
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Product.objects.all()
+
 
 def product_list_view(request):
     queryset = Product.objects.all()
@@ -27,7 +31,7 @@ def product_list_view(request):
 
 
 class ProductDetailView(DetailView):
-    queryset = Product.objects.all()
+    # queryset = Product.objects.all()
     template_name = "products/detail.html"
 
     def get_context_data(self, *args, **kwargs):
@@ -36,22 +40,36 @@ class ProductDetailView(DetailView):
         print(context)
         return context
 
+    def get_object(self, *args, **kwargs):
+        request = self.request
+        pk = self.kwargs.get('pk')
+        instance = Product.objects.get_by_id(pk)
+        print(instance)
+        if instance is None:
+            raise Http404("Product Does Not exist")
+        return instance
+    # def get_queryset(self, *args, **kwargs):
+    #     pk = self.kwargs.get('pk')
+    #     request = self.request
+    #     return Product.objects.filter(pk=pk)
+
 
 def product_detail_view(request, pk=None, *args, **kwargs):
-    # try:
-    #     instance = Product.objects.get(id=pk)
-    # except Product.DoesNotExist:
-    #     print('no product here')
-    #     raise Http404("Product Does Not exist")
-    # except:
-    #     print('huh?')
-
-    qs = Product.objects.filter(id=pk)
-    print(qs)
-    if qs.exists() and qs.count() == 1:
-        instance = qs.first()
-    else:
+    '''Gets all the objects where id equals Product Key 
+    Will raise exception if the Product does not exist in our model
+    '''
+    instance = Product.objects.get_by_id(pk)
+    print(instance)
+    if instance is None:
         raise Http404("Product Does Not exist")
+
+    # print(instance)
+    # qs = Product.objects.filter(id=pk)
+
+    # if qs.exists() and qs.count() == 1:
+    #     instance = qs.first()
+    # else:
+    #     raise Http404("Product Does Not exist")
 
     context = {
         'object': instance
