@@ -1,6 +1,7 @@
 #from django.views import ListView
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 
 
 from .models import Product
@@ -37,10 +38,21 @@ class ProductDetailView(DetailView):
 
 
 def product_detail_view(request, pk=None, *args, **kwargs):
+    # try:
+    #     instance = Product.objects.get(id=pk)
+    # except Product.DoesNotExist:
+    #     print('no product here')
+    #     raise Http404("Product Does Not exist")
+    # except:
+    #     print('huh?')
 
-    # id number that autmaticall increiments no matter what
-    #instance = Product.objects.get(pk=pk)
-    instance = get_object_or_404(Product, pk=pk)
+    qs = Product.objects.filter(id=pk)
+    print(qs)
+    if qs.exists() and qs.count() == 1:
+        instance = qs.first()
+    else:
+        raise Http404("Product Does Not exist")
+
     context = {
         'object': instance
     }
