@@ -1,5 +1,30 @@
 # Ecommerce_repo
 
+---
+
+#IMPORTANT
+
+---
+
+---
+
+---
+
+---
+
+When you start Running the File.
+Do not run docker-compose up -d and docker-compose up at the same time. That will wipe out the DataBase as you replace the memory by reininitializing the container.
+
+Just Run either one and if you run docker-compose up -d remember to run docker-compose down after you're done using the container.
+
+---
+
+---
+
+---
+
+---
+
 # Please Install Docker, Docker-compose, Python 3 and Pip, Tmux before doing anything of the commands below in the directory,
 
 - pip install -r requirements.txt
