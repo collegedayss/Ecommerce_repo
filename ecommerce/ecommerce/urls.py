@@ -20,8 +20,12 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib import admin
 
-from products.views import ProductListView, product_list_view, ProductDetailView, product_detail_view
-
+from products.views import (ProductListView,
+                            product_list_view,
+                            ProductDetailView,
+                            product_detail_view,
+                            ProductFeaturedDetailView,
+                            ProductFeaturedListView)
 from .views import home_page, contact_page, about_page, login_page, register_page
 
 urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
@@ -31,6 +35,8 @@ urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.ME
     path('register/', register_page),
     path('about/', about_page),
     path('products/', ProductListView.as_view()),
+    path('featured/', ProductFeaturedListView.as_view()),
+    re_path(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
     path('products-fbv/', product_list_view),
     re_path(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
     re_path(r'^products-fbv/(?P<pk>\d+)/$', product_detail_view),
