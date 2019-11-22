@@ -36,7 +36,7 @@ class ProductManager(models.Manager):
         return ProductQuerySet(self.model, using=self._db)
 
     def all(self):
-        return self.get_queryset.active()
+        return self.get_queryset().active()
 
     def featured(self):
         return self.get_queryset().filter(featured=True)
@@ -56,7 +56,7 @@ class Product(models.Model):
     image = models.ImageField(
         upload_to=upload_image_path, null=True, blank=True)
     featured = models.BooleanField(default=False)
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
