@@ -51,7 +51,7 @@ class ProductManager(models.Manager):
 
 
 class Product(models.Model):
-    objects = ProductManager()
+
     title = models.CharField(max_length=120)
     slug = models.SlugField(blank=True, unique=True)
     description = models.TextField()
@@ -60,6 +60,11 @@ class Product(models.Model):
         upload_to=upload_image_path, null=True, blank=True)
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
+
+    objects = ProductManager()
+
+    def get_absolute_url(self):
+        return f"/products/{self.slug}/"
 
     def __str__(self):
         return self.title

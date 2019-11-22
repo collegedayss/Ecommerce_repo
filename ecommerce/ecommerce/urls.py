@@ -17,16 +17,16 @@ from django.conf import settings
 from django.urls import path, re_path
 from django.conf.urls.static import static
 
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
-from products.views import (ProductListView,
-                            product_list_view,
-                            ProductDetailView,
-                            product_detail_view,
-                            ProductDetailSlugView,
-                            ProductFeaturedDetailView,
-                            ProductFeaturedListView)
+# from products.views import (ProductListView,
+#                             product_list_view,
+#                             ProductDetailView,
+#                             product_detail_view,
+#                             ProductDetailSlugView,
+#                             ProductFeaturedDetailView,
+#                             ProductFeaturedListView)
 from .views import home_page, contact_page, about_page, login_page, register_page
 
 urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
@@ -35,12 +35,13 @@ urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.ME
     path('login/', login_page),
     path('register/', register_page),
     path('about/', about_page),
-    path('products/', ProductListView.as_view()),
-    path('featured/', ProductFeaturedListView.as_view()),
-    re_path(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
-    path('products-fbv/', product_list_view),
-    #re_path(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    re_path(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    re_path(r'^products-fbv/(?P<pk>\d+)/$', product_detail_view),
+    re_path(r'^products/', include("products.urls")),
+    # path('products/', ProductListView.as_view()),
+    # path('featured/', ProductFeaturedListView.as_view()),
+    # re_path(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
+    # path('products-fbv/', product_list_view),
+    # #re_path(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
+    # re_path(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
+    # re_path(r'^products-fbv/(?P<pk>\d+)/$', product_detail_view),
     path('admin/', admin.site.urls),
 ]
