@@ -2,12 +2,22 @@
 
 {% block content %} 
 
+<div class='container'>
+    
+    <div class='row'>
+     <div class='col'>
+  <h1>{{ object.title}}</h1>
 
-{{ object.title}} <br />
-{{ object.description}} <br />
+  
+  <h3>{{ "some title here"|title}}    </h3>
+{{ object.description|linebreaks}} <br />
 {{ object.price}} <br />
 {%if object.image%}
 <img src='{{ object.image.url}}' class='img-fluid' style="width: 200px;" />
 {% endif %}
+</div>
+</div>
+</div>
+
 
 {% endblock %}
