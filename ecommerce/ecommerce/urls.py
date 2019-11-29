@@ -30,11 +30,11 @@ from django.contrib import admin
 from .views import home_page, contact_page, about_page, login_page, register_page
 
 urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
-    path('', home_page),
-    path('contact/', contact_page),
-    path('login/', login_page),
-    path('register/', register_page),
-    path('about/', about_page),
+    path('', home_page, name='home'),
+    path('contact/', contact_page, name='contact'),
+    path('login/', login_page, name='login'),
+    path('register/', register_page, name='register'),
+    path('about/', about_page, name='about'),
     re_path(r'^products/', include("products.urls", namespace='products')),
     
     # path('products/', ProductListView.as_view()),
