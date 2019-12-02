@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 # from products.views import (ProductListView,
 #                             product_list_view,
@@ -34,6 +35,7 @@ urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.ME
     path('contact/', contact_page, name='contact'),
     path('login/', login_page, name='login'),
     path('register/', register_page, name='register'),
+    path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
     path('about/', about_page, name='about'),
     re_path(r'^products/', include(("products.urls",
                                     'products'), namespace='products')),
