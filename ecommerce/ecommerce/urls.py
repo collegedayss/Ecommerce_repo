@@ -35,8 +35,8 @@ urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.ME
     path('login/', login_page, name='login'),
     path('register/', register_page, name='register'),
     path('about/', about_page, name='about'),
-    re_path(r'^products/', include("products.urls", namespace='products')),
-    
+    re_path(r'^products/', include(("products.urls",
+                                    'products'), namespace='products')),
     # path('products/', ProductListView.as_view()),
     # path('featured/', ProductFeaturedListView.as_view()),
     # re_path(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
