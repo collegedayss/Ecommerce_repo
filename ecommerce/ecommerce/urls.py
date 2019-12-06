@@ -20,14 +20,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
-
-# from products.views import (ProductListView,
-#                             product_list_view,
-#                             ProductDetailView,
-#                             product_detail_view,
-#                             ProductDetailSlugView,
-#                             ProductFeaturedDetailView,
-#                             ProductFeaturedListView)
+from carts.views import cart_home
 from .views import home_page, contact_page, about_page, login_page, register_page
 
 urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
@@ -39,6 +32,7 @@ urlpatterns = urlpatterns = static(settings.MEDIA_URL, document_root=settings.ME
     path('about/', about_page, name='about'),
     re_path(r'^products/', include(("products.urls",
                                     'products'), namespace='products')),
+    path('cart/', cart_home, name='cart'),
     # path('products/', ProductListView.as_view()),
     # path('featured/', ProductFeaturedListView.as_view()),
     # re_path(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),

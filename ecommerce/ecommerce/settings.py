@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # our Apps
     'products',
+    'carts',
     # preinstalled Apps
     'django.contrib.admin',
     'django.contrib.auth',
