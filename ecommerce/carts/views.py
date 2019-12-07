@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from products.models import Product
 from .models import Cart
 
 
@@ -9,7 +10,8 @@ def cart_home(request):
     total = 0
     for x in products:
         total += x.price
-    print(total)
+    print(
+        f"cart id : {cart_obj} and cart product total is {total} and  queryset {cart_obj.products.all()}")
     cart_obj.total = total
     cart_obj.save()
     return render(request, "carts/home.html", {})
