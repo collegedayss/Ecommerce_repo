@@ -13,8 +13,6 @@ def get_filename_ext(filepath):
 
 
 def upload_image_path(instance, filename):
-   # print(instance)
-   # print(filename)
     new_filename = random.randint(1, 123124)
     name, ext = get_filename_ext(filename)
     final_filename = f'{new_filename}{ext}'
@@ -66,7 +64,7 @@ class Product(models.Model):
     objects = ProductManager()
 
     def get_absolute_url(self):
-        #return f"/products/{self.slug}/"
+        # return f"/products/{self.slug}/"
         return reverse("products:detail", kwargs={"slug": self.slug})
 
     def __str__(self):
