@@ -3,7 +3,7 @@
 # Please Install Docker, Docker-compose, Python 3 and Pip, Tmux before doing anything of the commands below in the directory,
 
 - pip install -r requirements.txt
-  Starting up the server
+## Starting up the server
 - docker-compose up -d
 - Website will be avalible at http://localhost:8080/
 
@@ -11,8 +11,10 @@
 Do not run docker-compose up -d and docker-compose up at the same time. That will wipe out the DataBase as you replace the memory by reininitializing the container.
 Just Run either one and if you run docker-compose up -d remember to run docker-compose down after you're done using the container.
 
-# if you're running Cloud 9 please run the following command to get be set up.
+# if you're running AWS ubuntu please run the following command to get be set up.
 - bash bash.txt
+
+## The following is a cheat
 # Docker Commnads
 
 To Shut down your Docker Image enter the following command.
@@ -43,11 +45,3 @@ Create new user if You can't log in.
 
 - rm -rf ecommerce/ecommerce/**pycache**
 
-# Git commands
-
-- git config --global user.name "John Doe"
-- git config --global user.email johndoe@example.com
-## Pushing and Pulling from Github
-- git add .
-- git commit -m "Docker fix"
-- git push
